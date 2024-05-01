@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/inicial.css">
+    <title>CyberLife</title>
+    <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header id="navbar">
+        <div class="logo-header">
+            <img id="logo-led" src="/assets/logo.svg" alt="logo da CyberLife" draggable="false"> <span
+                class="logo-cyberlife">CYBERLIFE</span>
+        </div>
+
+        <ul class="options_header">
+            <li>Quiz</li>
+            <li>Dashoards</li>
+            <li>Saiba mais</li>
+        </ul>
+
+        <button class="btn-Login-header">Login</button>
+        <Span class="span-cadastro">Cadastro</Span>
+    </header>
+
+        <img src="/assets/DETROIT.png" id="background-kara" draggable="false">
+        <div class="div_btnInicial">
+            <button class="btnInicial">Saiba mais</button>
+        </div>
+
+    <div class="roll_1_inicial">
+        <img src="/assets/connor2.png" id="connor-scroll" draggable="false">
+        <div class="scroll_explicacao">
+            <span class="titulos_inicial">Por que "Detroit - Become Human"?</span> <br>
+            <span class="texto_explicacao">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos fugit non
+                voluptate consequatur quasi voluptatum numquam cum laboriosam. Impedit quas sed doloribus veniam
+                voluptas molestiae! Repellat quas impedit voluptatum eveniet.</span>
+            <span class="texto_explicacao">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos fugit non
+                voluptate consequatur quasi voluptatum numquam cum laboriosam. Impedit quas sed doloribus veniam
+                voluptas molestiae! Repellat quas impedit voluptatum eveniet.</span>
+        </div>
+    </div>
+
+    <div class="roll_2_inicial">
+        <img src="/assets/onu_foto.png" id="img_scroll_onu" draggable="false">
+        <div class="scroll_explicacao">
+            <span class="titulos_inicial">Ligação com nao sei oq nao sei oq la da onu</span> <br>
+            <span class="texto_explicacao">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos fugit non
+                voluptate consequatur quasi voluptatum numquam cum laboriosam. Impedit quas sed doloribus veniam
+                voluptas molestiae! Repellat quas impedit voluptatum eveniet.</span>
+
+            <span class="texto_explicacao">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos fugit non
+                voluptate consequatur quasi voluptatum numquam cum laboriosam. Impedit quas sed doloribus veniam
+                voluptas molestiae! Repellat quas impedit voluptatum eveniet.</span>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+<script>
+
+    window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('navbar');
+        navbar.classList.remove('scrolled');
+        if (window.scrollY > 0) {
+            navbar.classList.add('scrolled');
+        }
+    });
+
+
+
+</script>

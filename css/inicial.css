@@ -6,7 +6,7 @@
 
 body,
 html {
-    width: 100%;
+    width: 100%;    
 }
 
 body {
@@ -29,7 +29,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background: var(--sb-thumb-color);
     border-radius: 1px;
-
 }
 
 @supports not selector(::-webkit-scrollbar) {
@@ -74,7 +73,6 @@ li:hover {
 
     position: fixed;
     z-index: 1;
-
 }
 
 #navbar.scrolled {
@@ -92,7 +90,7 @@ li:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
-
+    user-select: none;
 }
 
 #logo-led {
@@ -108,7 +106,7 @@ li:hover {
     font-weight: 500;
 }
 
-.options-header {
+.options_header {
     width: 70vw;
 
     display: flex;
@@ -165,9 +163,7 @@ li:hover {
     position: absolute;
     top: 75%;
     left: 75%;
-
 }
-
 
 .btnInicial {
     width: 17vw;
@@ -195,7 +191,59 @@ li:hover {
 /*tela 2*/
 
 .roll_1_inicial{
+    display: flex;
     width: 100%;
     height: 100vh;
-    background-color: white;
+}
+
+.scroll_explicacao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titulos_inicial{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.texto_explicacao{
+    font-size: 20px;
+}
+
+#connor-scroll{
+    width: 45%; 
+    height: 100vh;
+}
+
+/* Tela 3*/
+
+.roll_2_inicial{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.scroll_explicacao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.titulos_inicial{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.texto_explicacao{
+    font-size: 20px;
+}
+
+#img_scroll_onu{
+    width: 45%; 
+    height: 100vh;
 }
