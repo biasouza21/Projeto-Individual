@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>CyberLife</title>
+    <link rel="shortcut icon" href="../assets/logo.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header id="navbar">
+         <div class="logo-header">
+            <img id="logo-led" src="../assets/logo.svg" alt="logo da CyberLife" draggable="false"> <span
+                class="logo-cyberlife">CYBERLIFE</span>
+        </div>
+
+        <ul class="options_header">
+            <li>Quiz</li>
+            <li>Dashoards</li>
+            <li>Saiba mais</li>
+        </ul>
+
+        <a href="html/login.html"><button class="btn-Login-header">Login</button></a>
+        <Span class="span-cadastro"><a href="html/cadastro.html" class="href_cadastro">Cadastro</a></Span>
+    </header>
+
+    <img src="/assets/DETROIT.png" id="background-kara" draggable="false">
+    <div class="div_btnInicial">
+        <button class="btnInicial">Saiba mais</button>
+    </div>
+
+    <div class="roll_1_inicial">
+        <img src="/assets/connor2.png" id="connor_scroll" draggable="false">
+        <div class="scroll_explicacao">
+            <span class="titulos_inicial">Por que "Detroit - Become Human"?</span> <br>
+            <span class="texto_explicacao">O jogo "Detroit - Become Human" teve um papel importante na minha forma de
+                enxergar problemas da sociedade que estão presentes no nosso dia a dia há muitos anos. Além disso, a
+                retratação do avanço tecnológico e a forma como os seres humanos se adaptaram à isso na narrativa se
+                assemelha aos tempos atuais, servindo também de exemplo de como <strong>não</strong> inserirmos a
+                tecnologia em nossas vidas (como substituindo seres humanos por máquinas, causando uma onda gigantesca
+                de desempregos e aumentando a pobreza no mundo caso feita sem moderação.).</span>
+        </div>
+    </div>
+
+    <div class="roll_2_inicial">
+        <img src="/assets/onu_foto.png" id="img_scroll_onu" draggable="false">
+        <div class="scroll_explicacao">
+            <span class="titulos_inicial">O que é a ODS?</span> <br>
+            <span class="texto_explicacao">Objetivos de Desenvolvimento Sustentavel da ONU (ou ODS) são uma série de
+                objetivos que abordam os principais desafios pro desenvolvimento da sociedade enfrentados são apenas
+                pelo Brasil, mas pelo mundo inteiro. Dentre eles estão: <strong>Erradicação da pobreza, Igualdade de
+                    gênero, Fome zero e agricultura sustentável, Água potável e saneamento</strong>, entre outros.
+            </span>
+
+
+        </div>
+
+    </div>
+
+    <div class="roll_3_inicial">
+        <img src="assets/markus.png" id="markus_scroll">
+
+        <div class="scroll_explicacao">
+            <span class="titulos_inicial">10 - Redução das desigualdades</span> <br>
+            <span class="texto_explicacao"> A principal mensagem transmitida pela narrativa é “redução de desigualdades”, retratada na luta comandada por Markus em busca da liberdade dos androides e a igualdade entre eles e os seres humanos, excluindo a pirâmide hierárquica que foi construída onde humanos mandavam em robôs. </span>
+
+            <span class="titulos_inicial">16 - Paz, Justiça e instituições eficazes.</span> <br>
+            <span class="texto_explicacao">O segundo tópico, interligado ao primeiro, é “paz, justiça e instituições eficazes”. Seguindo a rota pacifista (que reflete em um universo utópico), é possível buscar a igualdade e justiça por meio da paz, em manifestações sem violência buscando a comoção pública que, por fim, resulta na conquista do seu objetivo. </span>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script>
+
+    window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('navbar');
+        navbar.classList.remove('scrolled');
+        if (window.scrollY > 0) {
+            navbar.classList.add('scrolled');
+        }
+
+    });
+</script>

@@ -15,6 +15,8 @@ body {
     --sb-track-color: #232e33;
     --sb-thumb-color: #a0a0a0;
     --sb-size: 8px;
+
+    user-select: none;
 }
 
 body::-webkit-scrollbar {
@@ -85,6 +87,7 @@ li:hover {
     color: black;
 }
 
+/*TELA 1*/
 
 .logo-header {
     display: flex;
@@ -97,6 +100,9 @@ li:hover {
     width: 5vw;
     height: 7vh;
 }
+
+/* #logo-led:hover{
+} */
 
 .logo-cyberlife {
     font-size: 23px;
@@ -140,8 +146,13 @@ li:hover {
 }
 
 .btn-Login-header:hover {
-    transform: scale(1.05);
+    transform: scale(1);
     background-color: #2e2d2d;
+}
+
+.btn-Login-header:active {
+    transform: scale(0.95);
+    background-color: #4b4949;
 }
 
 .span-cadastro {
@@ -181,14 +192,19 @@ li:hover {
     cursor: pointer;
 }
 
-.btnInicial:hover {
-    transform: scale(1.05);
+.btnInicial:hover{
     background-color: rgb(21, 19, 22);
+
+}
+
+.btnInicial:active {
+    transform: scale(0.95);
+    background-color: rgb(21, 19, 22, 0.5);
 
 
 }
 
-/*tela 2*/
+/*TELA 2*/
 
 .roll_1_inicial{
     display: flex;
@@ -213,37 +229,48 @@ li:hover {
     font-size: 20px;
 }
 
-#connor-scroll{
+#connor_scroll{
     width: 45%; 
     height: 100vh;
 }
 
-/* Tela 3*/
+/* TELA 3*/
 
 .roll_2_inicial{
     display: flex;
     width: 100%;
     height: 100vh;
-}
 
-.scroll_explicacao{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.titulos_inicial{
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.texto_explicacao{
-    font-size: 20px;
 }
 
 #img_scroll_onu{
     width: 45%; 
-    height: 100vh;
+    height: 92vh;
+
+    margin-top: 10vh;
+}
+
+/*TELA 4*/
+
+.roll_3_inicial{
+    display: flex;
+    width: 100%;
+    height: 101vh;
+
+}
+
+.roll_3_inicial .scroll_explicacao{
+    margin-top: 8vh;
+}
+
+.roll_3_inicial .titulos_inicial{
+    margin-top: 5vh;
+}
+
+#markus_scroll{
+    width: 45%; 
+    height: 80vh;
+
+    margin-top: 20vh;
+    margin-right: 15px;
 }

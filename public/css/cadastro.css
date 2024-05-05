@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+.tela_cadastro{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container_cadastro{
+    height: 80vh;
+    width: 85vw;
+
+    box-shadow: -15px 10px 20px rgb(0, 0, 0, 0.1);
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+}
+
+.card_cadastro{
+    height: 70vh;
+    width: 55vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.div_span_cadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.div_span_cadastro :nth-child(1){
+    font-size: 30px;
+    
+}
+
+.div_span_cadastro :nth-child(2){
+    font-size: 20px;
+    
+}
+
+.div_input_cadastro{
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    font-weight: 500;
+    font-size: .8vw;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(109, 109, 109);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #e8e1df;
+    outline: none;
+    padding: 0.4vw;
+    width: 20vw;
+    height: 5vh;
+    transition: .4s;
+    margin-top: 20px;
+}
+
+input:hover {
+    box-shadow: 0 0 0 .15vw rgba(66, 66, 66, 0.3);
+}
+
+input:focus {
+    box-shadow: 0 0 0 .15vw #919191;
+}
+
+.group_input_password_senha {
+    position: relative;
+    
+}
+
+.group_input_password_senha img {
+position: absolute;
+bottom: 0;
+right: 0;
+width: 20px;
+margin: 7px;
+filter: invert(35%);
+cursor: pointer;
+}
+
+.group_input_password_confirmarSenha {
+    position: relative;
+    
+}
+
+.group_input_password_confirmarSenha img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    margin: 7px;
+    filter: invert(35%);
+    cursor: pointer;
+}
+
+
+#img_arrow{
+    width: 2vw;
+    height: 4vh;
+}
+
+.span_fazerLogin{
+    font-size: 13px;
+}
+
+.card_cadastro button {
+    width: 10vw;
+    padding: .5rem;
+    border-radius: 25px;
+    margin-top: 15px;
+    
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: white;
+    
+    background-color: #90a1d1;
+    border: none;
+    
+    cursor: pointer;
+    transition: .05s;
+    
+}
+
+.card_cadastro button:hover {
+    background-color: #a9bbeb;
+}
+
+.card_cadastro button:active {
+    transition: 0;
+    background-color: #90a1d1;
+    transform: scale(.98);
+}
+
+#img_cadastro{
+    margin-top: 4px;
+    height: 80vh;
+    width: 30vw;
+    
+}

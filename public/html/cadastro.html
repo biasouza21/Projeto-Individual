@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <title>CyberLife | Cadastro </title>
+    <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="tela_cadastro">
+        <div class="container_cadastro">
+            <div class="card_cadastro">
+                <a href="../index.html"><img src="/assets/back_arrow.png" id="img_arrow"></a>
+    
+                <div class="div_span_cadastro">
+                    <span class="titulo_card">Cadastre-se:</span>
+                    <span class="texto_cadastro">Crie sua conta gratuitamente.</span>
+                </div>
+    
+                <div class="div_input_cadastro">
+                    <input type="text" id="" placeholder="Nome completo">
+                    <input type="text" id="" placeholder="Email">
+                   
+                   <div class="group_input_password_senha">
+                       <img src="/assets/eye_open.svg" id="img_eye" onclick="togglePassword()">
+                       <input type="text" id="inp_senha_cadastro" placeholder="Senha">
+                    </div>
+
+                    <div class="group_input_password_confirmarSenha">
+                        <img src="/assets/eye_open.svg" id="img_eyeConfirmPasswd" onclick="toggleConfirmPassword()">
+                        <input type="text" id="inp_confirmarSenha_cadastro" placeholder="Confirme sua senha">
+                    </div>
+                </div>
+                <span class="span_fazerLogin">Já tem uma conta? <a href="login.html">Fazer login</a></span>
+                <button>Cadastrar</button>
+            </div>
+    
+            <div class="div_img_cadastro">
+                <img src="/assets/img_cadastro.png" id="img_cadastro">
+            </div>
+    
+        </div>
+
+    </div>
+    
+</body>
+
+<script>
+    function togglePassword() {
+        let iptSenha = document.getElementById("inp_senha_cadastro")
+        let img = document.getElementById("img_eye")
+        if (iptSenha.type == "password") {
+            iptSenha.type = "text"
+            img.src = "/assets/eye_closed.svg"
+        } else {
+            iptSenha.type = "password"
+            img.src = "/assets/eye_open.svg"
+        }
+
+    }
+
+    function toggleConfirmPassword(){
+        let iptConfirmarSenha = document.getElementById("inp_confirmarSenha_cadastro")
+        let img = document.getElementById("img_eyeConfirmPasswd")
+        if (iptConfirmarSenha.type == "password") {
+            iptConfirmarSenha.type = "text"
+            img.src = "/assets/eye_closed.svg"
+        } else {
+            iptConfirmarSenha.type = "password"
+            img.src = "/assets/eye_open.svg"
+        }
+
+    }
+
+</script>
