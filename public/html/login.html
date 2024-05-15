@@ -22,8 +22,9 @@
                     <img src="/assets/eye_open.svg" id="img_eye" onclick="togglePassword()">
                     <input type="password" id="inp_senha_login" placeholder="Senha">
                 </div>
-                <span class="span_fazerCadastro">Ainda não tem uma conta? <a href="cadastro.html">Fazer cadastro</a></span>
-                <button onclick="btn_fazerLogin()">Entrar</button>
+                <span class="span_fazerCadastro">Ainda não tem uma conta? <a href="cadastro.html">Fazer
+                        cadastro</a></span>
+                <button onclick="login()">Entrar</button>
             </div>
 
             <div class="div_img_login">
@@ -47,5 +48,51 @@
             img.src = "/assets/eye_open.svg"
         }
 
+    }
+
+    async function login() {
+        var emailVar = inp_email_login.value
+        var senhaVar = inp_senha_login.value
+
+        if (emailVar == "" || senhaVar == "") {
+            alert('Campos não preenchidos.')
+            return;
+        }
+
+        await fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then((resposta) => {
+            console.log("ESTOU NO THEN DO login()!")
+            if (resposta.ok) {
+                console.log(resposta);
+                console.log("logou");
+                window.location = "/html/quiz.html"
+                resposta.json().then(json=>{
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                })
+                
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        }).catch((erro) => {
+            console.log(erro);
+
+        })
     }
 </script>

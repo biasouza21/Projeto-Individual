@@ -8,46 +8,49 @@
     <title>CyberLife | Cadastro </title>
     <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon">
 </head>
+
 <body>
     <div class="tela_cadastro">
         <div class="container_cadastro">
             <div class="card_cadastro">
                 <a href="../index.html"><img src="/assets/back_arrow.png" id="img_arrow"></a>
-    
+
                 <div class="div_span_cadastro">
                     <span class="titulo_card">Cadastre-se:</span>
                     <span class="texto_cadastro">Crie sua conta gratuitamente.</span>
                 </div>
-    
+
                 <div class="div_input_cadastro">
-                    <input type="text" id="" placeholder="Nome completo">
-                    <input type="text" id="" placeholder="Email">
-                   
-                   <div class="group_input_password_senha">
-                       <img src="/assets/eye_open.svg" id="img_eye" onclick="togglePassword()">
-                       <input type="text" id="inp_senha_cadastro" placeholder="Senha">
+                    <input type="text" id="inp_nome_cadastro" placeholder="Nome completo">
+                    <input type="text" id="inp_email_cadastro" placeholder="Email">
+
+                    <div class="group_input_password_senha">
+                        <img src="/assets/eye_open.svg" id="img_eye" onclick="togglePassword()">
+                        <input type="password" id="inp_senha_cadastro" placeholder="Senha">
                     </div>
 
                     <div class="group_input_password_confirmarSenha">
                         <img src="/assets/eye_open.svg" id="img_eyeConfirmPasswd" onclick="toggleConfirmPassword()">
-                        <input type="text" id="inp_confirmarSenha_cadastro" placeholder="Confirme sua senha">
+                        <input type="password" id="inp_confirmarSenha_cadastro" placeholder="Confirme sua senha">
                     </div>
                 </div>
                 <span class="span_fazerLogin">Já tem uma conta? <a href="login.html">Fazer login</a></span>
-                <button>Cadastrar</button>
+                <span id="span_erro_cadastro" style="display: none; color: red;">* Preencha todos os campos corretamente para prosseguir.</span>
+                <button onclick="cadastrar()">Cadastrar</button>
             </div>
-    
+
             <div class="div_img_cadastro">
                 <img src="/assets/img_cadastro.png" id="img_cadastro">
             </div>
-    
+
         </div>
 
     </div>
-    
+
 </body>
 
 <script>
+    
     function togglePassword() {
         let iptSenha = document.getElementById("inp_senha_cadastro")
         let img = document.getElementById("img_eye")
@@ -61,7 +64,7 @@
 
     }
 
-    function toggleConfirmPassword(){
+    function toggleConfirmPassword() {
         let iptConfirmarSenha = document.getElementById("inp_confirmarSenha_cadastro")
         let img = document.getElementById("img_eyeConfirmPasswd")
         if (iptConfirmarSenha.type == "password") {
@@ -72,6 +75,50 @@
             img.src = "/assets/eye_open.svg"
         }
 
+    }
+
+    function cadastrar() {
+
+        var nomeVar = inp_nome_cadastro.value
+        var emailVar = inp_email_cadastro.value
+        var senhaVar = inp_senha_cadastro.value
+        var confirmarSenhaVar = inp_confirmarSenha_cadastro.value
+
+        if (nomeVar == "" ||
+            emailVar == "" ||
+            senhaVar == "" ||
+            confirmarSenhaVar == ""
+        ) {
+        document.getElementById("span_erro_cadastro").style.display = "block";
+        return
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            }),
+        })
+            .then((resposta) => {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...')
+                    window.location = "login.html";
+
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch((resposta) => {
+                console.log(`#ERRO: ${resposta}`);
+                return;
+            })
     }
 
 </script>
