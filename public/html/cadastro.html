@@ -93,6 +93,23 @@
         return
         }
 
+        if (emailVar.trim() == "" || senhaVar.trim() == "") {
+            alert('Campos não preenchidos.')
+            return;
+        } else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1){
+            alert('O email precisa ter pelo menos um @ e um .')
+            return;
+        }
+        
+        if (senhaVar.length < 8){
+            alert('A senha precisa ter no mínimo 8 caracteres.')
+            return;
+        } else if (senhaVar.indexOf("@") == -1 && senhaVar.indexOf("#") == -1 && senhaVar.indexOf("_") == -1){
+            alert('A senha precisa conter pelo menos 1 caractere especial (@, # ou _).')
+            return;
+        }
+        
+
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -111,12 +128,14 @@
                     alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...')
                     window.location = "login.html";
 
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
+                } else if (resposta.status == 409) {
+                    console.log('else')
+                    alert('Erro de email duplicado')
                 }
             })
             .catch((resposta) => {
                 console.log(`#ERRO: ${resposta}`);
+
                 return;
             })
     }

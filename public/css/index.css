@@ -50,6 +50,47 @@ li:hover {
     position: relative;
 }
 
+.btnInicial {
+    width: 17vw;
+    height: 8vh;
+}
+
+.btnInicial:hover {
+    transform: scale(1.05);
+}
+
+.btnInicial:hover{
+    background-color: rgb(21, 19, 22);
+
+}
+
+.btnInicial:active {
+    transform: scale(0.95);
+    background-color: rgb(21, 19, 22, 0.5);
+}
+
+.div_btnInicial {
+    position: relative;
+    top: -27%;
+    left: 75%;
+}
+
+.btnInicial {
+    width: 17vw;
+    height: 8vh;
+    border-radius: 30px;
+
+    background-color: rgb(21, 19, 22, 0.5);
+    border: none;
+    color: white;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+
+    transition: 0.2s;
+    cursor: pointer;
+}
+
 #navbar {
     width: 99.5%;
     height: 8vh;

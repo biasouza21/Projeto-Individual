@@ -54,11 +54,6 @@
         var emailVar = inp_email_login.value
         var senhaVar = inp_senha_login.value
 
-        if (emailVar == "" || senhaVar == "") {
-            alert('Campos não preenchidos.')
-            return;
-        }
-
         await fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
@@ -85,6 +80,7 @@
             } else {
 
                 console.log("Houve um erro ao tentar realizar o login!");
+                alert('Conta não cadastrada.')
 
                 resposta.text().then(texto => {
                     console.error(texto);

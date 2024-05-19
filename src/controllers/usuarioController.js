@@ -64,7 +64,12 @@ function cadastrar(req, res){
             (erro)=>{
                 console.log(erro);
                 console.log('\nHouve um erro ao realizar o cadastro! Erro: ', erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage)
+                if (erro.sqlState == '23000'){
+                    res.status(409).json(erro.sqlMessage) //conflito
+                } else {
+                    res.status(500).json(erro.sqlMessage)
+                }
+
             }
         )
 
