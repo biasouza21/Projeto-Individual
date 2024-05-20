@@ -22,6 +22,8 @@
                     <img src="/assets/eye_open.svg" id="img_eye" onclick="togglePassword()">
                     <input type="password" id="inp_senha_login" placeholder="Senha">
                 </div>
+                <span id="span_erro_cadastro" style="display: none; color: red; font-size: 13px;">* Preencha todos os campos corretamente
+                    para prosseguir.</span>
                 <span class="span_fazerCadastro">Ainda não tem uma conta? <a href="cadastro.html">Fazer
                         cadastro</a></span>
                 <button onclick="login()">Entrar</button>
@@ -53,6 +55,10 @@
     async function login() {
         var emailVar = inp_email_login.value
         var senhaVar = inp_senha_login.value
+        if (emailVar.trim() == "" || senhaVar.trim() == ""){
+            document.getElementById("span_erro_cadastro").style.display = "block";
+            return
+        }
 
         await fetch("/usuarios/autenticar", {
             method: "POST",

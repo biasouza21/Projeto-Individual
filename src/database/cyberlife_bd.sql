@@ -5,7 +5,7 @@ use cyberlife;
 create table usuario(
 id int primary key auto_increment,
 nome varchar (45),
-email varchar (255),
+email varchar (255) unique key,
 senha varchar (255)
 );
 	
