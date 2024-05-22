@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/explicacao_escolha.css">
     <title>CyberLife</title>
     <link rel="shortcut icon" href="../assets/logo.ico" type="image/x-icon">
 </head>
@@ -16,9 +16,8 @@
     </div>
 
     <div class="div_sections" id="id_div_sections">
-        <section>
             <header id="navbar">
-                <a href="index.html">
+                <a href="../index.html">
                 <div class="logo-header">
                     <img id="logo-led" src="../assets/logo.svg" alt="logo da CyberLife" draggable="false"> <span
                         class="logo-cyberlife">CYBERLIFE</span>
@@ -28,26 +27,20 @@
                 <ul class="options_header">
                     <li onclick="handleBotaoQuiz()" class="btn_Quiz">SurvQ</li>
                     <li onclick="handleBotaoDashboard()" class="btn_Dashboards">Dashoards</li>
-                    <li onclick="handleBotaoExplicacao()" class="btn_Explicacao"><a href="../html/explicacao_escolha.html">Por que "Detroit - Become Human"?</a></li>
+                    <li onclick="handleBotaoExplicacao()" class="btn_Explicacao">Por que "Detroit - Become Human"?</li>
                 </ul>
 
                 <a href="html/login.html"><button class="btn-Login-header">Login</button></a>
                 <Span class="span-cadastro"><a href="html/cadastro.html" class="href_cadastro">Cadastro</a></Span>
             </header>
-            <img src="/assets/DETROIT.png" id="background-kara" draggable="false">
-            <div class="div_btnInicial">
-                <button class="btnInicial">Saiba mais</button>
-            </div>
-        </section>
 
-
+        
         <section class="roll_1_inicial">
-            <img src="/assets/connor2.png" id="connor_scroll" draggable="false">
+            <img src="../assets/connor2.png" id="connor_scroll" draggable="false">
             <div class="scroll_explicacao">
                 <span class="titulos_inicial">Por que "Detroit - Become Human"?</span> <br>
                 <span class="texto_explicacao">O jogo "Detroit - Become Human" teve um papel importante na minha forma
-                    de
-                    enxergar problemas da sociedade que estão presentes no nosso dia a dia há muitos anos. Além disso, a
+                    de enxergar problemas da sociedade que estão presentes no nosso dia a dia há muitos anos. No meu ponto de vista, a mídia deve ser usada para transmitir mensagens importantes e induzir um pensamento crítico nas pessoas, esse jogo cumpre isso. Além disso, a
                     retratação do avanço tecnológico e a forma como os seres humanos se adaptaram à isso na narrativa se
                     assemelha aos tempos atuais, servindo também de exemplo de como <strong>não</strong> inserirmos a
                     tecnologia em nossas vidas (como substituindo seres humanos por máquinas, causando uma onda
@@ -57,7 +50,7 @@
         </section>
 
         <section class="roll_2_inicial">
-            <img src="/assets/onu_foto.png" id="img_scroll_onu" draggable="false">
+            <img src="../assets/onu_foto.png" id="img_scroll_onu" draggable="false">
             <div class="scroll_explicacao">
                 <span class="titulos_inicial">O que é a ODS?</span> <br>
                 <span class="texto_explicacao">Os Objetivos de Desenvolvimento Sustentável (ODS) são uma série de metas
@@ -77,11 +70,11 @@
         </section>
 
         <section class="roll_3_inicial">
-            <img src="assets/markus.png" id="markus_scroll" draggable="false">
+            <img src="../assets/markus.png" id="markus_scroll" draggable="false">
 
             <div class="scroll_explicacao_markus">
                 <div class="div_ods">
-                    <img src="assets/reduzirAsDesigualdades.png" class="img_ods" draggable="false">
+                    <img src="../assets/reduzirAsDesigualdades.png" class="img_ods" draggable="false">
                     <span class="titulos_inicial">10 - Redução das <br> desigualdades</span> <br>
                     <span class="texto_explicacao"> A principal mensagem transmitida pela narrativa é “redução de
                         desigualdades”, retratada na luta comandada por Markus em busca da liberdade dos androides e
@@ -95,7 +88,7 @@
                 </div>
 
                 <div class="div_ods_paz">
-                    <img src="assets/pazJustica.png" class="img_ods" draggable="false">
+                    <img src="../assets/pazJustica.png" class="img_ods" draggable="false">
                     <span class="titulos_inicial">16 - Paz, Justiça e instituições eficazes.</span> <br>
                     <span class="texto_explicacao">O segundo tópico, interligado ao primeiro, é “paz, justiça e
                         instituições
@@ -112,14 +105,11 @@
         </section>
 
     </div>
-
+    </div>
 </body>
-
 </html>
 <script>
-
-
-    function verificarLogin() {
+function verificarLogin() {
         console.log(sessionStorage.getItem("ID_USUARIO"))
         if (sessionStorage.getItem("ID_USUARIO") == undefined || sessionStorage.getItem("ID_USUARIO") == null) {
             handleToast("Redirecionando para login...")
@@ -160,4 +150,4 @@
         }
     });
 
-</script>
+</script>    
