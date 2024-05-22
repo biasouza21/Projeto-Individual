@@ -259,7 +259,7 @@ height: 100vh;
     height: 100vh;
 }
 
-.scroll_explicacao{
+.scroll_sobre_mim{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -274,11 +274,14 @@ height: 100vh;
 
 .texto_explicacao{
     font-size: 20px;
+    margin-right: 2vw;
 }
 
-#connor_scroll{
+#sobre_mim_scroll{
+    margin-top: 7vh;
+    margin-right: 2vw;
     width: 45%; 
-    height: 100vh;
+    height: 93vh;
     z-index: -2;
 }
 

@@ -30,8 +30,8 @@
                     <li onclick="handleBotaoExplicacao()" class="btn_Explicacao">Por que "Detroit - Become Human"?</li>
                 </ul>
 
-                <a href="html/login.html"><button class="btn-Login-header">Login</button></a>
-                <Span class="span-cadastro"><a href="html/cadastro.html" class="href_cadastro">Cadastro</a></Span>
+                <a href="login.html"><button class="btn-Login-header">Login</button></a>
+                <Span class="span-cadastro"><a href="cadastro.html" class="href_cadastro">Cadastro</a></Span>
             </header>
 
         
@@ -141,13 +141,5 @@ function verificarLogin() {
             //USUARIO LOGADO, IR PARA O QUIZ
         }
     }
-
-    id_div_sections.addEventListener('scroll', function () {
-        const navbar = document.getElementById('navbar');
-        navbar.classList.remove('scrolled');
-        if (id_div_sections.scrollTop > 0) {
-            navbar.classList.add('scrolled');
-        }
-    });
 
 </script>    
