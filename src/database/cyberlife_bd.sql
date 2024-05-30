@@ -8,7 +8,7 @@ nome varchar (45),
 email varchar (255) unique key,
 senha varchar (255)
 );
-	
+
 select * from usuario;
 desc usuario;
 truncate table usuario;
