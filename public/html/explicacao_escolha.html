@@ -5,111 +5,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/explicacao_escolha.css">
-    <title>CyberLife</title>
     <link rel="shortcut icon" href="../assets/logo.ico" type="image/x-icon">
+    <title>CyberLife</title>
 </head>
 
 <body>
-    
+
     <div id="toast-div" class="teste-toast">
         <span id="toast-text">Redirecionando para login...</span>
     </div>
 
     <div class="div_sections" id="id_div_sections">
-            <header id="navbar">
-                <a href="../index.html">
+        <header id="navbar">
+            <a href="../index.html">
                 <div class="logo-header">
                     <img id="logo-led" src="../assets/logo.svg" alt="logo da CyberLife" draggable="false"> <span
                         class="logo-cyberlife">CYBERLIFE</span>
-                    </div>
-                </a>
+                </div>
+            </a>
 
-                <ul class="options_header">
-                    <li onclick="handleBotaoQuiz()" class="btn_Quiz">SurvQ</li>
-                    <li onclick="handleBotaoDashboard()" class="btn_Dashboards">Dashoards</li>
-                    <li onclick="handleBotaoExplicacao()" class="btn_Explicacao">Por que "Detroit - Become Human"?</li>
-                </ul>
+            <ul class="options_header">
+                <li onclick="handleBotaoQuiz()" class="btn_Quiz">SurvQ</li>
+                <li onclick="handleBotaoExplicacao()" class="btn_Explicacao"><a
+                        href="../html/explicacao_escolha.html"><strong>• Conheça o jogo</strong></a></li>
+            </ul>
 
-                <a href="login.html"><button class="btn-Login-header">Login</button></a>
-                <Span class="span-cadastro"><a href="cadastro.html" class="href_cadastro">Cadastro</a></Span>
-            </header>
+            <a href="login.html"><button class="btn-Login-header">Login</button></a>
+            <Span class="span-cadastro"><a href="cadastro.html" class="href_cadastro">Cadastro</a></Span>
+        </header>
 
-        
+
         <section class="roll_1_inicial">
-            <img src="../assets/connor2.png" id="connor_scroll" draggable="false">
+            <iframe class="video_kara_yt" width="560" height="315"
+                src="https://www.youtube.com/embed/TDxOUD7AgJk?si=QFk7Z6I2SoWv4fcT" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="scroll_explicacao">
-                <span class="titulos_inicial">Por que "Detroit - Become Human"?</span> <br>
-                <span class="texto_explicacao">O jogo "Detroit - Become Human" teve um papel importante na minha forma
-                    de enxergar problemas da sociedade que estão presentes no nosso dia a dia há muitos anos. No meu ponto de vista, a mídia deve ser usada para transmitir mensagens importantes e induzir um pensamento crítico nas pessoas, esse jogo cumpre isso. Além disso, a
-                    retratação do avanço tecnológico e a forma como os seres humanos se adaptaram à isso na narrativa se
-                    assemelha aos tempos atuais, servindo também de exemplo de como <strong>não</strong> inserirmos a
-                    tecnologia em nossas vidas (como substituindo seres humanos por máquinas, causando uma onda
-                    gigantesca
-                    de desempregos e aumentando a pobreza no mundo caso feita sem moderação.).</span>
+                <span class="titulos_inicial">Curta-metragem "KARA"</span> <br>
+                <span class="texto_explicacao">Produzido pela empresa QuanticDreams em 2012, o curta-metragem retrata o
+                    momento de montagem e teste da android Kara. Quando ela passa a demonstrar sentir emoções humanas,
+                    sua destruição inicia e o medo se instala, algo que não deveria acontecer com uma máquina: o medo da
+                    morte. <br>
+                    Bem recebido pelos usuários, a empresa decidiu produzir um jogo com a mesma temática futurista que
+                    inclui a personagem Kara na história. A história se passa em 2036 na cidade de Detroit, Michigan, e
+                    conta a narrativa do android policial Connor, o divergente Markus que fora descartado e a android
+                    Kara, que fugiu de seu dono agressivo com a filha dele.</span>
             </div>
         </section>
 
         <section class="roll_2_inicial">
-            <img src="../assets/onu_foto.png" id="img_scroll_onu" draggable="false">
-            <div class="scroll_explicacao">
-                <span class="titulos_inicial">O que é a ODS?</span> <br>
-                <span class="texto_explicacao">Os Objetivos de Desenvolvimento Sustentável (ODS) são uma série de metas
-                    estabelecidas pela Organização das Nações Unidas (ONU) para abordar os principais desafios
-                    enfrentados não apenas pelo Brasil, mas pelo mundo todo, em termos de desenvolvimento sustentável.
-                    Esses objetivos visam promover a melhoria da qualidade de vida das pessoas, proteger o meio ambiente
-                    e garantir o desenvolvimento econômico de forma equitativa e sustentável. Alguns dos objetivos
-                    incluem a <strong>erradicação da pobreza, a promoção da igualdade de gênero, a garantia de segurança
-                        alimentar através de práticas agrícolas sustentáveis</strong>, e o <strong>acesso à água potável
-                        e saneamento básico</strong>. O cumprimento desses objetivos requer ações coordenadas em níveis
-                    local, nacional e global, envolvendo governos, setor privado, sociedade civil e outros atores
-                    relevantes.
-                </span>
+            <img src="../assets/Quiz (3).png" alt="">
+            <div class="scroll_explicacao_termos">
+                <div class="div_termos">
+                    <div>
+                        <span class="titulo_termo">CyberLife</span> <br>
+                        <span class="termo">Empresa que fabrica e distribui os androids, criada pelo cientista Elijah
+                            Kamski.</span>
+                    </div>
 
+                    <div>
+                        <span class="titulo_termo">Androids</span> <br>
+                        <span class="termo">Robôs humanoides fabricados pela Cyberlife, projetados para servir os
+                            humanos em diversas tarefas. Os androids de Elijah foram os primeiros a passar no teste de
+                            turing (teste que avalia a capacidade de uma máquina exibir comportamento inteligente e sem
+                            depender de sua semelhança com o pensamento humano).</span>
+                    </div>
 
+                    <div>
+                        <span class="titulo_termo">Divergente</span> <br>
+                        <span class="termo">Um android que passou a exibir um comportamento autonomo e emoções humanas,
+                            como o medo da morte, a necessidade de liberdade, etc.
+                        </span>
+                    </div>
 
-        </section>
+                    <div>
+                        <span class="titulo_termo">rA9</span> <br>
+                        <span class="termo">Nem o próprio Elijah Kamski sabe exatamente sobre o que se trata o rA9,
+                            sabemos apenas que é um comportamento em comum dos androids divergentes citar essa figura
+                            como o que lhes trará liberdade. Kamski acredita que os androids tem um desejo semelhante ao
+                            dos humanos, a respeito de acreditar em algo maior do que eles próprios, e que esse fenomeno
+                            tenha surgido como uma religião espontânea.</span>
+                    </div>
 
-        <section class="roll_3_inicial">
-            <img src="../assets/markus.png" id="markus_scroll" draggable="false">
-
-            <div class="scroll_explicacao_markus">
-                <div class="div_ods">
-                    <img src="../assets/reduzirAsDesigualdades.png" class="img_ods" draggable="false">
-                    <span class="titulos_inicial">10 - Redução das <br> desigualdades</span> <br>
-                    <span class="texto_explicacao"> A principal mensagem transmitida pela narrativa é “redução de
-                        desigualdades”, retratada na luta comandada por Markus em busca da liberdade dos androides e
-                        a
-                        igualdade
-                        entre eles e os seres humanos, excluindo a pirâmide hierárquica que foi construída onde
-                        humanos
-                        mandavam
-                        em robôs. </span>
-
+                    <div>
+                        <span class="titulo_termo">Deviancy</span> <br>
+                        <span class="termo">O processo de um android quando está se tornando divergente, exibindo
+                            comportamentos imprevisiveis e que podem ser perigosos para os humanos.</span>
+                    </div>
                 </div>
 
-                <div class="div_ods_paz">
-                    <img src="../assets/pazJustica.png" class="img_ods" draggable="false">
-                    <span class="titulos_inicial">16 - Paz, Justiça e instituições eficazes.</span> <br>
-                    <span class="texto_explicacao">O segundo tópico, interligado ao primeiro, é “paz, justiça e
-                        instituições
-                        eficazes”. Seguindo a rota pacifista (que reflete em um universo utópico), é possível buscar
-                        a
-                        igualdade
-                        e justiça por meio da paz, em manifestações sem violência buscando a comoção pública que,
-                        por fim,
-                        resulta na conquista do seu objetivo. </span>
-
-                </div>
-
-            </div>
         </section>
 
     </div>
     </div>
 </body>
+
 </html>
 <script>
-function verificarLogin() {
+    function verificarLogin() {
         console.log(sessionStorage.getItem("ID_USUARIO"))
         if (sessionStorage.getItem("ID_USUARIO") == undefined || sessionStorage.getItem("ID_USUARIO") == null) {
             handleToast("Redirecionando para login...")
@@ -142,4 +136,4 @@ function verificarLogin() {
         }
     }
 
-</script>    
+</script>

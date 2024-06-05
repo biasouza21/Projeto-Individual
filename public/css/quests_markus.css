@@ -12,15 +12,16 @@ body {
   background-color: #121214;
   color: #fff;
   overflow-y: hidden;
-  
+
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  background-image: url(/assets/background_quiz.png);
+  background-image: url(../assets/background_markus.png);
+  background-size: 100vw;
 }
 
 .container {
@@ -28,8 +29,10 @@ body {
   max-width: 800px;
   padding: 16px;
 
-  color: black;
-  
+  color: white;
+  background-color: rgba(33, 32, 32, 0.8);
+  border-radius: 10px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -75,13 +78,13 @@ body {
   transition: 0.2s;
 }
 
-.button:hover{
+.button:hover {
   transform: scale(1.05);
   background-color: black;
   color: white;
 }
 
-.btn_refazer_teste{
+.btn_refazer_teste {
   background-color: transparent;
   border: 2px solid white;
   color: white;
@@ -96,7 +99,7 @@ body {
 
 }
 
-.btn_refazer_teste:hover{
+.btn_refazer_teste:hover {
   transform: scale(1.05);
   background-color: white;
   color: black;
@@ -104,7 +107,7 @@ body {
 
 }
 
-.btn_voltarQuiz{
+.btn_voltarQuiz {
   background-color: transparent;
   border: 2px solid white;
   color: white;
@@ -119,7 +122,7 @@ body {
 
 }
 
-.btn_voltarQuiz:hover{
+.btn_voltarQuiz:hover {
   transform: scale(1.05);
   background-color: white;
   color: black;
@@ -133,16 +136,16 @@ body {
 
 /*FINAL QUIZ*/
 
-li{
+li {
   list-style: none;
 }
 
 /*MISSAO CONCLUIDA 1*/
 
-#missaoConcluida{
+#missaoConcluida {
   height: 100vh;
   width: 100%;
-  background-image: url(/assets/concluidaconnor.png);
+  background-image: url(/assets/concluidamarkus.png);
   background-size: 100vw 120vh;
   background-repeat: no-repeat;
 
@@ -150,15 +153,22 @@ li{
 
   display: flex;
   flex-direction: row;
-  }
+}
 
+.frase_markus {
+  font-size: 25px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 15vw;
+  
+}
 
 /*MISSAO FRACASSADA 2*/
 
-#missaoFracassada{
+#missaoFracassada {
   height: 100vh;
   width: 100%;
-  background-image: url(/assets/fracassadaconnor.png);
+  background-image: url(/assets/fracassadamarkus.png);
   background-size: 100vw 120vh;
   background-repeat: no-repeat;
 
@@ -166,15 +176,25 @@ li{
 
   display: flex;
   flex-direction: row;
-  }
+}
+
+.frase_markus_guerra{
+  margin-left: 3rem;
+  margin-bottom: 15vw;
+
+  font-size: 32px;
+  font-weight: 700;
+  text-align: left;
+  
+}
 
 
 /*SACRIFICIO*/
 
-#sacrificio{
+#sacrificio {
   height: 100vh;
   width: 100%;
-  background-image: url(/assets/sacrificioconnor.png);
+  background-image: url(/assets/sacrificiomarkus.png);
   background-size: 100vw 120vh;
   background-repeat: no-repeat;
 
@@ -182,9 +202,9 @@ li{
 
   display: flex;
   flex-direction: row;
-  }
+}
 
-.div_frase{
+.div_frase {
   width: 30%;
   height: 95vh;
 
@@ -193,15 +213,16 @@ li{
   justify-content: center;
 }
 
-.frase{
+.frase_markus_sacrificio {
   font-size: 32px;
   font-weight: 700;
   text-align: left;
   
-  margin-bottom: 10vw;
+  margin-bottom: 20vw;
+  margin-left: 3rem;
 }
 
-.div_conclusao{
+.div_conclusao {
   text-align: end;
   height: 10vh;
   width: 95%;
@@ -212,12 +233,12 @@ li{
 
 }
 
-.div_conclusao ul{
+.div_conclusao ul {
   font-size: 13px;
 }
 
 
-.conclusao{
+.conclusao {
   font-size: 20px;
   margin-bottom: 5vw;
 }

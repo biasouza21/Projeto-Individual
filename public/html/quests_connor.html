@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/css/questions_connor.css">
+    <link rel="stylesheet" href="/css/quests_connor.css">
+    <link rel="shortcut icon" href="../assets/logo.ico" type="image/x-icon">
 
-    <title>Quiz JavaScript</title>
+    <title>SurQ | Connor</title>
 </head>
 
 <body>
@@ -23,19 +24,20 @@
             </div>
         </div>
         <div class="controls-container">
-            <button class="start-quiz button">Começar Quiz!</button>
+            <button class="start-quiz button">Começar teste</button>
             <button class="next-question button hide">Próxima pergunta</button>
         </div>
     </div>
-    
+
     <div id="missaoConcluida" style="display: none;">
         <div class="div_frase">
             <span class="frase">"Mentiu pra mim, <br> Connor. Mentiu pra <br> mim..."</span>
         </div>
-    
+
         <div class="div_conclusao">
-            <button onclick="window.location.reload()" class="btn_refazer_teste" style="display: none; position: absolute">
-                Refazer teste
+            <button onclick="location.href='../dashboard/dashboard.html'" class="btn_refazer_teste"
+                style="display: none; position: absolute">
+                Ver dashboard
             </button>
             <!-- <button onclick="window.location='quiz.html'" class="btn_voltarQuiz">Voltar para quiz</button> -->
             <ul class="lista_sobreviventes">
@@ -43,24 +45,25 @@
                 <li>Connor sobreviveu</li>
                 <li>Daniel morreu</li>
             </ul>
-    
+
             <span class="conclusao">Connor consegue concluir sua missão, mas <br> Daniel não sai vivo. Na verdade,
                 ele não <br> sairia vivo de qualquer forma, mas você o <br> fez crer que tinha esperança. <br>
                 No fim, nada disso importava contanto que <br> sua missão fosse concluída...</span>
         </div>
-    
+
     </div>
-    
+
     <div id="missaoFracassada" style="display: none;">
         <div class="div_frase">
             <span class="frase"><strong>“Passei minha vida <br> seguindo ordens. <br> É a minha vez de
                     decidir...”</strong></span>
         </div>
-    
-    
+
+
         <div class="div_conclusao">
-            <button onclick="window.location.reload()" class="btn_refazer_teste" style="display: none; position: absolute;">
-                Refazer teste
+            <button onclick="location.href='../dashboard/dashboard.html'" class="btn_refazer_teste"
+                style="display: none; position: absolute">
+                Ver dashboard
             </button>
             <!-- <button onclick="window.location='quiz.html'" class="btn_voltarQuiz">Voltar para tela de quiz -->
             </button>
@@ -72,31 +75,34 @@
             <span class="conclusao">Connor não consegue conquistar a confiança de <br> Daniel, fracassou na sua missão e
                 deixou
                 Emma morrer. <br> Você sobreviveu, mas a custo de quê? Você foi <br> criado pra isso e falhou.</span>
-    
+
         </div>
     </div>
-    
+
     <div id="sacrificio" style="display: none;">
         <div class="div_frase">
             <span class="frase"><strong>Instabilidade</strong> de software</span>
         </div>
-    
-    
+
+
         <div class="div_conclusao">
-            <button onclick="window.location.reload()" class="btn_refazer_teste" style="display: none; position: absolute">
-                Refazer teste
+            <button onclick="location.href='../dashboard/dashboard.html'" class="btn_refazer_teste"
+                style="display: none; position: absolute">
+                Ver dashboard
             </button>
 
-            <button onclick="window.location='quiz.html'" class="btn_voltarQuiz">Voltar para tela de quiz</button>
+            <!-- <button onclick="location.href='quiz.html'" class="btn_voltarQuiz">Voltar para tela de quiz</button> -->
             <ul class="lista_sobreviventes">
                 <li>Emma sobreviveu</li>
                 <li>Connor morreu</li>
                 <li>Daniel morreu</li>
             </ul>
-    
-            <span class="conclusao">Connor consegue concluir sua missão, mas não sobrevive. <br> No fim, isso não importa.
+
+            <span class="conclusao">Connor consegue concluir sua missão, mas não sobrevive. <br> No fim, isso não
+                importa.
                 Seu
-                dever é cumprir <br> sua missão, logo será substituído por outro modelo que seguirá <br> seu legado. O que
+                dever é cumprir <br> sua missão, logo será substituído por outro modelo que seguirá <br> seu legado. O
+                que
                 importa é
                 ter salvo a Emma </span>
         </div>
@@ -115,8 +121,6 @@
     let refazerFracassada = document.getElementsByClassName("btn_refazer_teste")[1]
     let refazerSacrificio = document.getElementsByClassName("btn_refazer_teste")[2]
 
-
-
     const questions = [
         {
             question: "Assim que chega no local e analisa ele, você descobre que o android estava prestes a ser substituído, mas que a criança tinha muito apego por ele. Examinando as vítimas, percebe que um dos policiais deixou sua arma cair. De acordo com a lei, você não pode portar uma arma, mas vê uma oportunidade de acabar com o divergente. O que você faz?",
@@ -124,56 +128,56 @@
                 { text: "Pegar a arma", points: -10 },
                 { text: "Deixar onde está", points: 0 }
             ]
-        }
-        // {
-        //     question: "Indo para o terraço, você leva um tiro de raspão no braço. Ele ameaça se jogar caso você se aproxime. Você tem 65% de chance e precisa conquistar a confiança do divergente enquanto se aproxima lentamente. Você escolhe:",
-        //     answers: [
-        //         { text: "Pedir calma", points: +3 },
-        //         { text: "Pedir que liberte a refém", points: -2 },
-        //         { text: "Tranquilizar Daniel", points: +5 },
-        //         { text: "Mostrar empatia", points: -2 }
-        //     ]
-        // },
-        // {
-        //     question: 'Olhando a esquerda, você avista um policial baleado perdendo muito sangue, correndo risco de vida. Ao pedir pro divergente para fazer um torniquete, ele se recusa e ameaça te matar caso o faça.',
-        //     answers: [
-        //         { text: 'Obedecer o Daniel', points: +6 },
-        //         { text: 'Ignorar Daniel', points: -5 },
-        //     ]
-        // },
-        // {
-        //     question: 'Se aproximando do divergente, você precisa escolher outra abordagem:',
-        //     answers: [
-        //         { text: "Expor a possível causa do comportamento dele (Sua substituição)", points: +5 },
-        //         { text: "Falar da relação dele com a Emma", points: +5 },
-        //         { text: "Ser acusativo", points: -15 },
-        //         { text: "Afirmar que ele está com um defeito de software", points: -15 }
-        //     ]
-        // },
-        // {
-        //     question: 'O divergente se mostra extremamente irritado com o helicóptero que rondava o local, cheio de policiais aguardando um sinal ou uma situação mais arriscada. Ele manda você fazer ele sair:',
-        //     answers: [
-        //         { text: 'Recusar / Dizer que não tem autoridade', points: -3 },
-        //         { text: 'Aceitar / Mandar o helicóptero sair', points: +5 }
-        //     ]
-        // },
-        // {
-        //     question: 'Essa é a sua última abordagem. Você tem mais uma chance de fazê-lo confiar 100% em ti. O que você faz: ',
-        //     answers: [
-        //         { text: 'Dizer a ele que você é a única chance que ele tem de sobreviver', points: -10 },
-        //         { text: 'Blefar', points: -5 },
-        //         { text: 'Afirmar que ele pode confiar em você', points: +4 },
-        //         { text: 'Ser racional', points: -5 }
-        //     ]
-        // },
-        // {
-        //     question: 'Daniel afirma que ele só irá soltar a menina quando estiver fora da cidade, e pede um carro para ir embora. Você afirma que não tem essa possibilidade, mas garante que ele vai ficar bem caso solte a refém. "Eu não quero morrer..."',
-        //     answers: [
-        //         { text: 'Se sacrificar para salvar a Emma.', points: -200 },
-        //         { text: 'Tranquilizar Daniel.', points: +10 },
-        //         { text: 'Falar a verdade.', points: -15 }
-        //     ]
-        // },
+        },
+        {
+            question: "Indo para o terraço, você leva um tiro de raspão no braço. Ele ameaça se jogar caso você se aproxime. Você tem 65% de chance e precisa conquistar a confiança do divergente enquanto se aproxima lentamente. Você escolhe:",
+            answers: [
+                { text: "Pedir calma", points: +3 },
+                { text: "Pedir que liberte a refém", points: -2 },
+                { text: "Tranquilizar Daniel", points: +5 },
+                { text: "Mostrar empatia", points: -2 }
+            ]
+        },
+        {
+            question: 'Olhando a esquerda, você avista um policial baleado perdendo muito sangue, correndo risco de vida. Ao pedir pro divergente para fazer um torniquete, ele se recusa e ameaça te matar caso o faça.',
+            answers: [
+                { text: 'Obedecer o Daniel', points: +6 },
+                { text: 'Ignorar Daniel', points: -5 },
+            ]
+        },
+        {
+            question: 'Se aproximando do divergente, você precisa escolher outra abordagem:',
+            answers: [
+                { text: "Expor a possível causa do comportamento dele (Sua substituição)", points: +5 },
+                { text: "Falar da relação dele com a Emma", points: +5 },
+                { text: "Ser acusativo", points: -15 },
+                { text: "Afirmar que ele está com um defeito de software", points: -15 }
+            ]
+        },
+        {
+            question: 'O divergente se mostra extremamente irritado com o helicóptero que rondava o local, cheio de policiais aguardando um sinal ou uma situação mais arriscada. Ele manda você fazer ele sair:',
+            answers: [
+                { text: 'Recusar / Dizer que não tem autoridade', points: -3 },
+                { text: 'Aceitar / Mandar o helicóptero sair', points: +5 }
+            ]
+        },
+        {
+            question: 'Essa é a sua última abordagem. Você tem mais uma chance de fazê-lo confiar 100% em ti. O que você faz: ',
+            answers: [
+                { text: 'Dizer a ele que você é a única chance que ele tem de sobreviver', points: -10 },
+                { text: 'Blefar', points: -5 },
+                { text: 'Afirmar que ele pode confiar em você', points: +4 },
+                { text: 'Ser racional', points: -5 }
+            ]
+        },
+        {
+            question: 'Daniel afirma que ele só irá soltar a menina quando estiver fora da cidade, e pede um carro para ir embora. Você afirma que não tem essa possibilidade, mas garante que ele vai ficar bem caso solte a refém. "Eu não quero morrer..."',
+            answers: [
+                { text: 'Se sacrificar para salvar a Emma.', points: -200 },
+                { text: 'Tranquilizar Daniel.', points: +10 },
+                { text: 'Falar a verdade.', points: -15 }
+            ]
+        },
     ];
     /*questions é um array que armazena todas as perguntas*/
     /*answers é um array aninhado (um array dentro do outro) que armazena as respostas. A cada resposta foi atribuida uma quantidade de pontos, que é somada ou subtraida ao total de pontos iniciais (65, armazenado na let totalPoints)*/
@@ -251,11 +255,11 @@
                 showMissaoFracassada.style.display = "block";
                 refazerFracassada.style.display = "block";
                 break;
-                case (performance >= 80 && performance <= 100):
-                    containerid.style.display = "none";
-                    showMissaoCompleta.style.display = "block";
-                    refazerCompleta.style.display = "block";
-                    break;
+            case (performance >= 80 && performance <= 100):
+                containerid.style.display = "none";
+                showMissaoCompleta.style.display = "block";
+                refazerCompleta.style.display = "block";
+                break;
             case (performance <= 0):
                 containerid.style.display = "none";
                 showSacrificio.style.display = "block";
@@ -264,13 +268,35 @@
             default:
                 message = "Resultado inesperado";
         }
+        
+        console.log(sessionStorage.ID_USUARIO)
+        console.log(sessionStorage.getItem('ID_USUARIO')) 
+        
+        fetch("/quiz/cadastrar-tentativa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pontuacaoServer: performance,
+                fkQuizServer: 1,
+                fkUsuarioServer: sessionStorage.ID_USUARIO
+            }),
+        })
+            .then((resposta) => {
+                console.log("resposta: ", resposta);
+                
+                if (resposta.ok) {
+                    console.log('cadastrado');
 
-        // $questionsContainer.innerHTML = `
-        //         <button onclick="window.location.reload()" class="btn_refazer_teste" style="display: block;">
-        //             Refazer teste
-        //         </button>
-        //     `;
+                }
+            })
+            .catch((resposta) => {
+                console.log(`#ERRO: ${resposta}`);
+                
+                return;
+            })
     }
-
-
-</script>
+            
+            
+        </script>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/quests_kara.css">
+    <link rel="shortcut icon" href="../assets/logo.ico" type="image/x-icon">
+
+
+    <title>SurQ | Kara</title>
+
+</head>
+
+<body>
+    <div id="containerid" class="container">
+        <div class="questions-container hide">
+            <span class="question">Pergunta aqui</span>
+            <div class="answers-container">
+                <button class="answer button">Resposta 1</button>
+                <button class="answer button">Resposta 2</button>
+                <button class="answer button">Resposta 3</button>
+                <button class="answer button">Resposta 4</button>
+            </div>
+        </div>
+        <div class="controls-container">
+            <button class="start-quiz button">Começar teste</button>
+            <button class="next-question button hide">Próxima pergunta</button>
+        </div>
+    </div>
+
+    <div id="missaoConcluida" style="display: none;">
+        <div class="div_frase">
+            <span class="frase">"Comecem a se preparar. <br> Saímos hoje a noite.</span>
+        </div>
+
+        <div class="div_conclusao">
+            <button onclick="location.href='../dashboard/dashboard.html'" class="ver_dashboard"
+                style="display: none; position: absolute">
+                Ver dashboard
+            </button>
+            <!-- <button onclick="window.location='quiz.html'" class="btn_voltarQuiz">Voltar para quiz</button> -->
+            <ul class="lista_sobreviventes">
+                <li>Alice sobreviveu</li>
+                <li>Kara sobreviveu</li>
+                <li>Luther sobreviveu</li>
+            </ul>
+
+            <span class="conclusao">Kara consegue despistar o <br>policial, dando um novo passo na <br> história. Agora, Rose poderá <br> ajudá-los a atravessar a <br> fronteira...</span>
+        </div>
+
+    </div>
+
+    <div id="missaoFracassada" style="display: none;">
+        <div class="div_frase">
+            <span class="frase">“Vocês vão ter que terminar essa jornada <br> sem mim...”</span>
+        </div>
+
+
+        <div class="div_conclusao">
+            <button onclick="location.href='../dashboard/dashboard.html'" class="ver_dashboard"
+                style="display: none; position: absolute">
+                Ver dashboard
+            </button>
+            <!-- <button onclick="window.location='quiz.html'" class="btn_voltarQuiz">Voltar para tela de quiz -->
+            </button>
+            <ul class="lista_sobreviventes">
+                <li>Alice sobreviveu</li>
+                <li>Kara sobreviveu</li>
+                <li>Luther morreu</li>
+            </ul>
+            <span class="conclusao">Luther foi descoberto pelo policial e <br> morreu... Você perdeu um companheiro <br> muito importante. Agora Kara e Alice <br>  deverão continuar sem ele...</span>
+
+        </div>
+    </div>
+
+    <div id="sacrificio" style="display: none;">
+        <div class="div_frase">
+            <span class="frase_sacrificio_kara">“Vocês vão ter que terminar essa jornada sem mim... eu era só uma máquina... você me deu uma família...”</span>
+        </div>
+
+
+        <div class="div_conclusao">
+            <button onclick="location.href='../dashboard/dashboard.html'" class="ver_dashboard"
+                style="display: none; position: absolute">
+                Ver dashboard
+            </button>
+
+            <!-- <button onclick="location.href='quiz.html'" class="btn_voltarQuiz">Voltar para tela de quiz</button> -->
+            <ul class="lista_sobreviventes">
+                <li>Alice sobreviveu</li>
+                <li>Kara sobreviveu</li>
+                <li>Luther morreu</li>
+            </ul>
+
+            <span class="conclusao">Luther e os divergentes foram <br> encontrados pelo policial e <br> Luther levou um tiro. Você <br> perdeu um companheiro valioso <br> por causa da sua má escolha.</span>
+        </div>
+    </div>
+</body>
+
+
+</html>
+
+<script>
+    let showMissaoCompleta = document.getElementById("missaoConcluida");
+    let showMissaoFracassada = document.getElementById("missaoFracassada");
+    let showSacrificio = document.getElementById("sacrificio");
+
+    let refazerCompleta = document.getElementsByClassName("ver_dashboard")[0]
+    let refazerFracassada = document.getElementsByClassName("ver_dashboard")[1]
+    let refazerSacrificio = document.getElementsByClassName("ver_dashboard")[2]
+
+    const questions = [
+        {
+            question: "A polícia bate na porta. Você tem 40 segundos para esconder todos os vestigios de android. Você pede para luther e alice se esconderem...",
+            answers: [
+                { text: "Andar superior", points: +10 },
+                { text: "Lavanderia", points: -200 },
+                { text: "Cozinha", points: -65 }
+            ]
+        },
+        {
+            question: "O filho adolescente de Rose, Adam Chapman, está tenso pela situação e pode comprometer a todos. Você precisa fazer com que ele não diga nada que prejudique a você e os outros androids na casa. Você escolhe... ",
+            answers: [
+                { text: "Tranquilizar", points: +5 },
+                { text: "Ameaçar", points: +0 },
+                { text: "Calma", points: +0 }
+            ]
+        },
+        {
+            question: 'O policial entra na casa educadamente. Você oferece um café a ele e o serve numa xícara enquanto o homem faz uma breve inspeção no local. "Tem mais alguém nessa casa?"',
+            answers: [
+                { text: 'Alice', points: +0 },
+                { text: 'Ninguém', points: +5 },
+            ]
+        },
+        {
+            question: '"Você tem algum android aqui?"',
+            answers: [
+                { text: "Sim", points: +0 },
+                { text: "Não", points: +5 },
+            ]
+        },
+        {
+            question: 'O policial toma o café que deu a ele e agradece. Depois, volta a vasculhar a casa. Ele escuta um barulho no andar de cima e desconfia de que você tenha mentido pra ele. Você afirma que esqueceu de citar sua filha. Ele se direciona ao Adam e começa a interrogá-lo. O garoto passa a gaguejar. "Está tudo bem, Adam?" Você vê a necessidade de interromper para dar uma desculpa. ',
+            answers: [
+                { text: 'Dizer que ele está preocupado', points: +0 },
+                { text: 'Dizer que ele está cansado', points: +5 }
+            ]
+        },
+        {
+            question: 'Quando o policial está indo embora, ele escuta um barulho da lavanderia. "Tem mais alguém na sua casa?"',
+            answers: [
+                { text: 'Cão', points: +0 },
+                { text: 'Máquina de Lavar', points: +5 },
+                { text: 'Vento', points: +0 },
+                { text: 'Não ouvi nada', points: +0 }
+            ]
+        }
+    ];
+    /*questions é um array que armazena todas as perguntas*/
+    /*answers é um array aninhado (um array dentro do outro) que armazena as respostas. A cada resposta foi atribuida uma quantidade de pontos, que é somada ou subtraida ao total de pontos iniciais (65, armazenado na let totalPoints)*/
+
+    const $startGameButton = document.querySelector(".start-quiz");
+    const $nextQuestionButton = document.querySelector(".next-question");
+    const $questionsContainer = document.querySelector(".questions-container");
+    const $questionText = document.querySelector(".question");
+    const $answersContainer = document.querySelector(".answers-container");
+
+    let currentQuestionIndex = 0;
+    let totalPoints = 65;
+
+    $startGameButton.addEventListener("click", startGame);
+    $nextQuestionButton.addEventListener("click", displayNextQuestion);
+
+    function startGame() {
+        $startGameButton.classList.add("hide");
+        $questionsContainer.classList.remove("hide");
+        displayNextQuestion();
+    }
+
+    function displayNextQuestion() {
+        resetState();
+        if (currentQuestionIndex >= questions.length) {
+            return finishGame();
+        }
+        const currentQuestion = questions[currentQuestionIndex];
+        $questionText.textContent = currentQuestion.question;
+        currentQuestion.answers.forEach(answer => {
+            const newAnswer = document.createElement("button");
+            newAnswer.classList.add("button", "answer");
+            newAnswer.textContent = answer.text;
+            newAnswer.dataset.points = answer.points;
+            $answersContainer.appendChild(newAnswer);
+
+            newAnswer.addEventListener("click", selectAnswer);
+        });
+    }
+
+    function resetState() {
+        while ($answersContainer.firstChild) {
+            $answersContainer.removeChild($answersContainer.firstChild);
+        }
+        document.body.removeAttribute("class");
+        $nextQuestionButton.classList.add("hide");
+    }
+
+    function selectAnswer(event) {
+        const answerClicked = event.target;
+        changeColor(answerClicked);
+
+        totalPoints += parseInt(answerClicked.dataset.points);
+
+        document.querySelectorAll(".answer").forEach(button => {
+            button.disabled = true;
+        });
+
+        $nextQuestionButton.classList.remove("hide");
+        currentQuestionIndex++;
+    }
+
+    function changeColor(button) {
+        button.style.backgroundColor = "black";
+        button.style.color = "white";
+    }
+
+    function finishGame() {
+        const performance = totalPoints;
+        let message = "";
+
+        switch (true) {
+            case (performance > 0 && performance <= 79):
+                containerid.style.display = "none";
+                showMissaoFracassada.style.display = "block";
+                refazerFracassada.style.display = "block";
+                break;
+            case (performance >= 80 && performance <= 100):
+                containerid.style.display = "none";
+                showMissaoCompleta.style.display = "block";
+                refazerCompleta.style.display = "block";
+                break;
+            case (performance <= 0):
+                containerid.style.display = "none";
+                showSacrificio.style.display = "block";
+                refazerSacrificio.style.display = "block";
+                break;
+            default:
+                message = "Resultado inesperado";
+        }
+        
+        console.log(sessionStorage.ID_USUARIO)
+        console.log(sessionStorage.getItem('ID_USUARIO')) 
+        
+        fetch("/quiz/cadastrar-tentativa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pontuacaoServer: performance,
+                fkQuizServer: 2,
+                fkUsuarioServer: sessionStorage.ID_USUARIO
+            }),
+        })
+            .then((resposta) => {
+                console.log("resposta: ", resposta);
+                
+                if (resposta.ok) {
+                    console.log('cadastrado');
+
+                }
+            })
+            .catch((resposta) => {
+                console.log(`#ERRO: ${resposta}`);
+                
+                return;
+            })
+    }
+            
+            
+        </script>

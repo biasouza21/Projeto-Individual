@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    width: 100%;    
+}
+
+body{
+    overflow-y: hidden;
+    background-image: url(../assets/img_dashboard.png);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn_Quiz{
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.btn_Quiz:hover{
+    transform: scale(1.05);
+}
+
+.btn_Dashboards{
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.btn_Dashboards:hover{
+    transform: scale(1.05);
+}
+
+
+#navbar {
+    width: 100%;
+    height: 8vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    transition: 0.3s ease;
+
+    position: fixed;
+    z-index: 1;
+}   
+
+.logo-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    user-select: none;
+}
+
+#logo-led {
+    width: 5vw;
+    height: 7vh;
+}
+
+
+.logo-cyberlife {
+    font-size: 23px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+    letter-spacing: -1px;
+    font-weight: 500;
+}
+
+.options_header {
+    width: 50%;
+    margin-left: 14vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: -1px;
+    font-size: 15px;
+    gap: 100px;
+
+    list-style: none;   
+    color: white;
+}
+
+/*DASHBOARD*/
+
+.dashboard{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_background_card{
+    background-color: rgb(0, 0, 0, 0.7);
+
+    border-radius: 25px;
+    width: 90vw;
+    height: 80vh;
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.div_kpis{
+    height: 80vh;
+    width: 35vw;
+    margin-left: 5vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.div_cards_kpi{
+    background-color: rgb(89, 86, 85, 0.8);
+    width: 25vw;
+    height: 20vh;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    color: rgb(222, 221, 221);
+    font-weight: 600;
+}
+
+.div_resultados_kpi{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    }
+
+.div_texto_kpi{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 25px;
+}
+
+.span_texto_resultado{
+    font-size: 15px;
+}
+
+.qtd_categoria{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/*GRAFICOS*/
+
+.div_graficos{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.div_grafico_pessoal{
+    margin-top: 25px;
+    margin-left: 5vw;
+    width: 35vw;
+    height: 32vh;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color:  rgb(89, 86, 85, 0.8) ;
+}
+
+.div_grafico_total{
+    margin-left: 5vw;
+    width: 35vw;
+    height: 35vh;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: rgb(89, 86, 85, 0.8) ;
+}
+
+.titulo_grafico{
+    color: white;
+    font-weight: 500;
+}

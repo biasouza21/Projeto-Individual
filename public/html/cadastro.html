@@ -34,8 +34,21 @@
                         <input type="password" id="inp_confirmarSenha_cadastro" placeholder="Confirme sua senha">
                     </div>
                 </div>
-                <span id="span_erro_cadastro" style="display: none; color: red; font-size: 13px;">* Preencha todos os campos corretamente
-                    para prosseguir.</span>
+                <span id="span_campos_vazios" style="display: none; color: red; font-size: 13px;">* Preencha todos os
+                    campos corretamente para prosseguir.</span>
+
+                <span id="span_email_errado" style="display: none; color: red; font-size: 13px;">* Email precisa conter
+                    um @ e um .</span>
+
+                <span id="span_senha_s_numero" style="display: none; color: red; font-size: 13px;">* A senha precisa
+                    conter pelo menos 1 número</span>
+
+                <span id="span_senha_s_caractere" style="display: none; color: red; font-size: 13px;">* A senha precisa
+                    conter pelo menos um caractere especial (@, !, _ ou #)</span>
+
+                <span id="span_senha_curta" style="display: none; color: red; font-size: 13px;">* A senha precisa conter
+                    no mínimo 8 caracteres</span>
+
                 <span class="span_fazerLogin">Já tem uma conta? <a href="login.html">Fazer login</a></span>
                 <button onclick="cadastrar()">Cadastrar</button>
             </div>
@@ -84,22 +97,25 @@
         var emailVar = inp_email_cadastro.value
         var senhaVar = inp_senha_cadastro.value
         var confirmarSenhaVar = inp_confirmarSenha_cadastro.value
-        
+
 
         if (nomeVar == "" ||
             emailVar == "" ||
             senhaVar == "" ||
             confirmarSenhaVar == ""
         ) {
-            document.getElementById("span_erro_cadastro").style.display = "block";
+            document.getElementById("span_campos_vazios").style.display = "block";
+            document.getElementById("span_email_errado").style.display = "none";
+            document.getElementById("span_senha_s_numero").style.display = "none";
+            document.getElementById("span_senha_s_caractere").style.display = "none";
+            document.getElementById("span_senha_curta").style.display = "none";
             return
-        }
-
-        if (emailVar.trim() == "" || senhaVar.trim() == "") {
-            alert('Campos não preenchidos.')
-            return;
         } else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
-            alert('O email precisa ter pelo menos um @ e um .')
+            document.getElementById("span_campos_vazios").style.display = "none";
+            document.getElementById("span_email_errado").style.display = "block";
+            document.getElementById("span_senha_s_numero").style.display = "none";
+            document.getElementById("span_senha_s_caractere").style.display = "none";
+            document.getElementById("span_senha_curta").style.display = "none";
             return;
         }
 
@@ -112,47 +128,58 @@
             }
 
             if (variavel == false) {
-                alert("Senha não possui nenhum numero");
+                document.getElementById("span_campos_vazios").style.display = "none";
+                document.getElementById("span_email_errado").style.display = "none";
+                document.getElementById("span_senha_s_numero").style.display = "block";
+                document.getElementById("span_senha_s_caractere").style.display = "none";
+                document.getElementById("span_senha_curta").style.display = "none";
                 return
-
             }
-            if (senhaVar.indexOf("@") == -1 && senhaVar.indexOf("#") == -1 && senhaVar.indexOf("_") == -1) {
-                alert('A senha precisa conter pelo menos 1 caractere especial (@, # ou _).')
+            if (senhaVar.indexOf("@") == -1 && senhaVar.indexOf("#") == -1 && senhaVar.indexOf("_") == -1 && senhaVar.indexOf("!") == -1) {
+                document.getElementById("span_campos_vazios").style.display = "none";
+                document.getElementById("span_email_errado").style.display = "none";
+                document.getElementById("span_senha_s_numero").style.display = "none";
+                document.getElementById("span_senha_s_caractere").style.display = "block";
+                document.getElementById("span_senha_curta").style.display = "none";
                 return;
             }
         } else {
-            alert('Senha precisa conter no minimo 8 caracteres.')
+            document.getElementById("span_campos_vazios").style.display = "none";
+                document.getElementById("span_email_errado").style.display = "none";
+                document.getElementById("span_senha_s_numero").style.display = "none";
+                document.getElementById("span_senha_s_caractere").style.display = "none";
+                document.getElementById("span_senha_curta").style.display = "block";
             return
         }
 
-            fetch("/usuarios/cadastrar", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    nomeServer: nomeVar,
-                    emailServer: emailVar,
-                    senhaServer: senhaVar
-                }),
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            }),
+        })
+            .then((resposta) => {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert("Cadastro realizado com sucesso! Redirecionando para a tela de Login...");
+                    window.location = "login.html";
+                    
+                } else if (resposta.status == 409) {
+                    console.log('else')
+                    alert("Este email já está em uso");
+                }
             })
-                .then((resposta) => {
-                    console.log("resposta: ", resposta);
+            .catch((resposta) => {
+                console.log(`#ERRO: ${resposta}`);
 
-                    if (resposta.ok) {
-                        alert('Cadastro realizado com sucesso! Redirecionando para a tela de login...')
-                        window.location = "login.html";
+                return;
+            })
 
-                    } else if (resposta.status == 409) {
-                        console.log('else')
-                        alert('Erro de email duplicado')
-                    }
-                })
-                .catch((resposta) => {
-                    console.log(`#ERRO: ${resposta}`);
-
-                    return;
-                })
-
-        }
+    }
 </script>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="shortcut icon" href="../assets/logo.svg" type="image/x-icon">
+    <title>CyberLife | Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header id="navbar">
+        <a href="../index.html">
+            <div class="logo-header">
+                <img id="logo-led" src="../assets/logo.svg" alt="logo da CyberLife" draggable="false"> <span
+                    class="logo-cyberlife">CYBERLIFE</span>
+            </div>
+        </a>
+
+        <ul class="options_header">
+            <li onclick="location.href='../html/quiz.html'" class="btn_Quiz">SurvQ</li>
+            <li onclick="location.href='dashboard.html'" class="btn_Dashboards"><strong>• Dashboards</strong></li>
+        </ul>
+    </header>
+
+    <section class="dashboard">
+        <div class="div_background_card">
+            <div class="div_kpis">
+                <span class="titulo_grafico">Resultados globais:</span>
+                <div class="div_cards_kpi">
+                    <span>Connor</span>
+
+                    <div class="div_resultados_kpi">
+                        <div class="div_texto_kpi">
+                            <span class="span_texto_resultado">Missão concluída</span>
+                            <span class="qtd_categoria" id="sp-concluida-connor"></span>
+                        </div>
+
+                        <div class="div_texto_kpi">
+                            <span class="span_texto_resultado">Missão fracassada</span>
+                            <span class="qtd_categoria" id="sp-fracassada-connor"></span>
+                        </div>
+
+                        <div class="div_texto_kpi">
+                            <span class="span_texto_resultado">Sacrifício</span>
+                            <span class="qtd_categoria" id="sp-sacrificio-connor"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="div_cards_kpi">
+                    <span>Kara</span>
+
+                    <div class="div_resultados_kpi">
+                        <div class="div_texto_kpi">
+                            <span class="span_texto_resultado">Missão concluída</span>
+                            <span class="qtd_categoria" id="sp-concluida-kara"></span>
+                        </div>
+
+                        <div class="div_texto_kpi">
+                            <span class="span_texto_resultado">Missão fracassada</span>
+                            <span class="qtd_categoria" id="sp-fracassada-kara"></span>
+                        </div>
+
+                        <div class="div_texto_kpi">
+                            <span class="span_texto_resultado">sacrificio</span>
+                            <span class="qtd_categoria" id="sp-sacrificio-kara"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="div_cards_kpi">
+                    <span>Markus</span>
+
+                    <div class="div_resultados_kpi">
+                        <div class="div_texto_kpi">
+                            <span class="span_texto_resultado">Missão concluída</span>
+                            <span class="qtd_categoria" id="sp-concluida-markus"></span>
+                        </div>
+
+                        <div class="div_texto_kpi">
+                            <span class="span_texto_resultado">Missão fracassada</span>
+                            <span class="qtd_categoria" id="sp-fracassada-markus"></span>
+                        </div>
+
+                        <div class="div_texto_kpi">
+                            <span class="span_texto_resultado">sacrificio</span>
+                            <span class="qtd_categoria" id="sp-sacrificio-markus"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="div_graficos">
+                <div class="div_grafico_pessoal">
+                    <span class="titulo_grafico">Seus resultados</span>
+                    <canvas id="graficoPessoal"></canvas>
+                </div>
+
+                <div class="div_grafico_total">
+                    <span class="titulo_grafico">Tentativas totais por quiz</span>
+                    <canvas id="graficoTotalQuiz"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+<script>
+    /*SEÇÃO GRÁFICOS*/
+    Chart.defaults.color = '#fff';
+    const ctx1 = document.getElementById('graficoPessoal');
+    let chartPessoal = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: ['Connor', 'Kara', 'Markus'],
+            datasets: [{
+                label: 'Missão concluída',
+                backgroundColor: '#6CE5E8',
+                data: [0, 0, 0],
+                borderWidth: 1
+            }, {
+                label: 'Missão fracassada',
+                backgroundColor: '#41B8D5',
+                data: [0, 0, 0],
+                borderWidth: 1
+            }, {
+                label: 'Sacrifícios',
+                backgroundColor: '#5c77fb',
+                data: [0, 0, 0],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+
+    const ctx2 = document.getElementById('graficoTotalQuiz');
+
+    let chartTotalTentativas = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: ['Connor', 'Kara', 'Markus'],
+            datasets: [{
+                label: '',
+                backgroundColor: '#6CE5E8',
+                data: [],
+                borderWidth: 1
+            }]
+        },
+    });
+
+    /*REQS E POPULAR GRAFICOS E KPIS*/
+
+
+    let tentativas = [];
+
+    listarTodasTentativas()
+
+    function listarTodasTentativas() {
+        fetch("/quiz/listar-tentativas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((resposta) => {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    console.log('cadastrado');
+                    resposta.json().then(json => {
+                        tentativas = json.resposta
+                        console.log(tentativas)
+
+                        populaKPI()
+                        populaGrafico()
+                    })
+                }
+            })
+            .catch((resposta) => {
+                console.log(`#ERRO: ${resposta}`);
+
+                return;
+            })
+    }
+
+    setInterval(() => {
+        listarTodasTentativas()
+    }, 1000)
+    /*Atualiza a kpi e os gráficos cada 10s*/
+
+
+    function populaKPI() {
+        // sp-concluida-connor
+        let qtdConcluidosConnor = 0
+        let qtdFracassadosConnor = 0
+        let qtdSacrificiosConnor = 0
+
+        let kpiConcluidosConnor = document.getElementById('sp-concluida-connor')
+        let kpiFracassadosConnor = document.getElementById('sp-fracassada-connor')
+        let kpiSacrificiosConnor = document.getElementById('sp-sacrificio-connor')
+
+        let qtdConcluidosKara = 0
+        let qtdFracassadosKara = 0
+        let qtdSacrificiosKara = 0
+
+        let kpiConcluidosKara = document.getElementById('sp-concluida-kara')
+        let kpiFracassadosKara = document.getElementById('sp-fracassada-kara')
+        let kpiSacrificiosKara = document.getElementById('sp-sacrificio-kara')
+
+        let qtdConcluidosMarkus = 0
+        let qtdFracassadosMarkus = 0
+        let qtdSacrificiosMarkus = 0
+
+        let kpiConcluidosMarkus = document.getElementById('sp-concluida-markus')
+        let kpiFracassadosMarkus = document.getElementById('sp-fracassada-markus')
+        let kpiSacrificiosMarkus = document.getElementById('sp-sacrificio-markus')
+
+        for (let i = 0; i < tentativas.length; i++) {
+            let element = tentativas[i]
+            if (element.pontuacao >= 80) {
+                if (element.fkQuiz == 1) {
+                    qtdConcluidosConnor++
+                } else if (element.fkQuiz == 2) {
+                    qtdConcluidosKara++
+                } else {
+                    qtdConcluidosMarkus++
+                }
+            } else if (element.pontuacao >= 0 && element.pontuacao < 80) {
+                if (element.fkQuiz == 1) {
+                    qtdFracassadosConnor++
+                } else if (element.fkQuiz == 2) {
+                    qtdFracassadosKara++
+                } else {
+                    qtdFracassadosMarkus++
+                }
+            } else {
+                if (element.fkQuiz == 1) {
+                    qtdSacrificiosConnor++
+                } else if (element.fkQuiz == 2) {
+                    qtdSacrificiosKara++
+                } else {
+                    qtdSacrificiosMarkus++
+                }
+            }
+        }
+        kpiConcluidosConnor.innerHTML = qtdConcluidosConnor
+        kpiFracassadosConnor.innerHTML = qtdFracassadosConnor
+        kpiSacrificiosConnor.innerHTML = qtdSacrificiosConnor
+
+        kpiConcluidosKara.innerHTML = qtdConcluidosKara
+        kpiFracassadosKara.innerHTML = qtdFracassadosKara
+        kpiSacrificiosKara.innerHTML = qtdSacrificiosKara
+
+        kpiConcluidosMarkus.innerHTML = qtdConcluidosMarkus
+        kpiFracassadosMarkus.innerHTML = qtdFracassadosMarkus
+        kpiSacrificiosMarkus.innerHTML = qtdSacrificiosMarkus
+    }
+
+    function populaGrafico() {
+        // Inicialização das variáveis de contagem
+        let totalTentativasQuiz1 = 0;
+        let totalTentativasQuiz2 = 0;
+        let totalTentativasQuiz3 = 0;
+
+
+        let concluidosConnor = 0;
+        let fracassadosConnor = 0;
+        let sacrificiosConnor = 0;
+
+        let concluidosKara = 0;
+        let fracassadosKara = 0;
+        let sacrificiosKara = 0;
+
+        let concluidosMarkus = 0;
+        let fracassadosMarkus = 0;
+        let sacrificiosMarkus = 0;
+
+        let userAtual = sessionStorage.getItem('ID_USUARIO');
+
+        for (let i = 0; i < tentativas.length; i++) {
+            const element = tentativas[i];
+            let isUserAtual = element.fkUsuario == userAtual;
+
+            if (element.fkQuiz == 1) {
+                totalTentativasQuiz1++;
+                if (isUserAtual) {
+                    if (element.pontuacao >= 80) {
+                        concluidosConnor++;
+                    } else if (element.pontuacao >= 0) {
+                        fracassadosConnor++;
+                    } else if (element.pontuacao < 0) {
+                        sacrificiosConnor++;
+                    }
+                }
+            } else if (element.fkQuiz == 2) {
+                totalTentativasQuiz2++;
+                if (isUserAtual) {
+                    if (element.pontuacao >= 80) {
+                        concluidosKara++;
+                    } else if (element.pontuacao >= 0) {
+                        fracassadosKara++;
+                    } else if (element.pontuacao < 0) {
+                        sacrificiosKara++;
+                    }
+                }
+            } else {
+                totalTentativasQuiz3++;
+                if (isUserAtual) {
+                    if (element.pontuacao >= 80) {
+                        concluidosMarkus++;
+                    } else if (element.pontuacao >= 0) {
+                        fracassadosMarkus++;
+                    } else if (element.pontuacao < 0) {
+                        sacrificiosMarkus++;
+                    }
+                }
+            }
+        }
+
+        // Atualização dos dados dos gráficos
+        chartTotalTentativas.data.datasets[0].data = [totalTentativasQuiz1, totalTentativasQuiz2, totalTentativasQuiz3];
+
+        chartPessoal.data.datasets[0].data = [concluidosConnor, concluidosKara, concluidosMarkus];
+        chartPessoal.data.datasets[1].data = [fracassadosConnor, fracassadosKara, fracassadosMarkus];
+        chartPessoal.data.datasets[2].data = [sacrificiosConnor, sacrificiosKara, sacrificiosMarkus];
+
+        // Atualização dos gráficos
+        chartTotalTentativas.update();
+        chartPessoal.update();
+
+    }
+
+
+</script>
