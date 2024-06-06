@@ -49,6 +49,8 @@
                 <span id="span_senha_curta" style="display: none; color: red; font-size: 13px;">* A senha precisa conter
                     no mínimo 8 caracteres</span>
 
+                <span id="span_senha_errada" style="display: none; color: red; font-size: 13px;">* As senhas não coincidem.</span>
+
                 <span class="span_fazerLogin">Já tem uma conta? <a href="login.html">Fazer login</a></span>
                 <button onclick="cadastrar()">Cadastrar</button>
             </div>
@@ -111,6 +113,7 @@
             document.getElementById("span_senha_s_numero").style.display = "none";
             document.getElementById("span_senha_s_caractere").style.display = "none";
             document.getElementById("span_senha_curta").style.display = "none";
+            document.getElementById("span_senha_errada").style.display = "none";
             return
         } else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
             document.getElementById("span_campos_vazios").style.display = "none";
@@ -118,6 +121,7 @@
             document.getElementById("span_senha_s_numero").style.display = "none";
             document.getElementById("span_senha_s_caractere").style.display = "none";
             document.getElementById("span_senha_curta").style.display = "none";
+            document.getElementById("span_senha_errada").style.display = "none";
             return;
         }
 
@@ -135,6 +139,7 @@
                 document.getElementById("span_senha_s_numero").style.display = "block";
                 document.getElementById("span_senha_s_caractere").style.display = "none";
                 document.getElementById("span_senha_curta").style.display = "none";
+                document.getElementById("span_senha_errada").style.display = "none";
                 return
             }
             if (senhaVar.indexOf("@") == -1 && senhaVar.indexOf("#") == -1 && senhaVar.indexOf("_") == -1 && senhaVar.indexOf("!") == -1) {
@@ -143,14 +148,25 @@
                 document.getElementById("span_senha_s_numero").style.display = "none";
                 document.getElementById("span_senha_s_caractere").style.display = "block";
                 document.getElementById("span_senha_curta").style.display = "none";
+                document.getElementById("span_senha_errada").style.display = "none";
                 return;
             }
-        } else {
-            document.getElementById("span_campos_vazios").style.display = "none";
+            if (senhaVar != confirmarSenhaVar) {
+                document.getElementById("span_senha_errada").style.display = "block";
+                document.getElementById("span_campos_vazios").style.display = "none";
                 document.getElementById("span_email_errado").style.display = "none";
                 document.getElementById("span_senha_s_numero").style.display = "none";
                 document.getElementById("span_senha_s_caractere").style.display = "none";
-                document.getElementById("span_senha_curta").style.display = "block";
+                document.getElementById("span_senha_curta").style.display = "none";
+                return
+            }
+        } else {
+            document.getElementById("span_campos_vazios").style.display = "none";
+            document.getElementById("span_email_errado").style.display = "none";
+            document.getElementById("span_senha_s_numero").style.display = "none";
+            document.getElementById("span_senha_s_caractere").style.display = "none";
+            document.getElementById("span_senha_curta").style.display = "block";
+            document.getElementById("span_senha_errada").style.display = "none";
             return
         }
 
@@ -172,7 +188,7 @@
                 if (resposta.ok) {
                     alert("Cadastro realizado com sucesso! Redirecionando para a tela de Login...");
                     window.location = "login.html";
-                    
+
                 } else if (resposta.status == 409) {
                     console.log('else')
                     alert("Este email já está em uso");
