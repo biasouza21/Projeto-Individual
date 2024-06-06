@@ -201,7 +201,7 @@
 
     setInterval(() => {
         listarTodasTentativas()
-    }, 1000)
+    }, 10000)
     /*Atualiza a kpi e os gráficos cada 10s*/
 
 
@@ -291,14 +291,17 @@
         let fracassadosMarkus = 0;
         let sacrificiosMarkus = 0;
 
+        /*VARIAVEL QUE VERIFICA O ID DO USUÁRIO LOGADO*/
         let userAtual = sessionStorage.getItem('ID_USUARIO');
 
         for (let i = 0; i < tentativas.length; i++) {
             const element = tentativas[i];
             let isUserAtual = element.fkUsuario == userAtual;
+            /*VARIAVEL QUE PERGUNTA SE A FK DO USUÁRIO É IGUAL O ID LOGADO*/
 
             if (element.fkQuiz == 1) {
                 totalTentativasQuiz1++;
+                /*IF QUE VE SE A VARIAVEL É VERDADEIRA*/ 
                 if (isUserAtual) {
                     if (element.pontuacao >= 80) {
                         concluidosConnor++;

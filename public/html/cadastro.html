@@ -65,6 +65,8 @@
 
 <script>
 
+    /*VER E OCULTAR SENHA*/
+
     function togglePassword() {
         let iptSenha = document.getElementById("inp_senha_cadastro")
         let img = document.getElementById("img_eye")
@@ -152,6 +154,7 @@
             return
         }
 
+        /*CADASTRAR O USUÁRIO*/
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -174,6 +177,7 @@
                     console.log('else')
                     alert("Este email já está em uso");
                 }
+                /*VER SE DA O ERRO 409 QUE INDICA DUPLICIDADE, JÁ QUE O EMAIL É UNIQUE KEY*/
             })
             .catch((resposta) => {
                 console.log(`#ERRO: ${resposta}`);
